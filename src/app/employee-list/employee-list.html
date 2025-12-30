@@ -1,7 +1,6 @@
-<h2>Employee List</h2>
-
-<table border="1">
-  <thead>
+<h2>Employee Management Dashboard</h2>
+<table border="1" style="width:100%; border-collapse: collapse;">
+  <thead style="background-color: #0056b3; color: white;">
     <tr>
       <th>ID</th>
       <th>Name</th>
@@ -16,7 +15,7 @@
       <td>{{ emp.name }}</td>
       <td>{{ emp.role }}</td>
       <td>{{ emp.department }}</td>
-      <td>{{ emp.salary }}</td>
+      <td>{{ emp.salary | currency:'INR' }}</td>
     </tr>
   </tbody>
 </table>
