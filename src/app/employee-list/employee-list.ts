@@ -9,8 +9,8 @@ import { Employee } from '../employee';
 })
 export class EmployeeList {
   employees: Employee[] = [
-    { id: 101, name: 'Karthik', role: 'Project Lead', department: 'IT', salary: 95000 },
-    { id: 102, name: 'jins', role: 'Graduate Engineer', department: 'Construction', salary: 70000 },
-    { id: 103, name: 'Ravi', role: 'Manager', department: 'HR', salary: 85000 }
+    { id: 1, name: 'Karthik', role: 'Project Lead', department: 'IT', salary: 95000 },
+    { id: 2, name: 'jins', role: 'Graduate Engineer', department: 'Construction', salary: 70000 },
+    { id: 3, name: 'Ravi', role: 'Manager', department: 'HR', salary: 85000 }
   ];
 }
