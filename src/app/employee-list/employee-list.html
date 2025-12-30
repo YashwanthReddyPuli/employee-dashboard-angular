@@ -1,0 +1,23 @@
+<div style="padding: 20px; font-family: sans-serif;">
+  <h2>Employee Management Dashboard</h2>
+  <table border="1" style="width:100%; border-collapse: collapse; text-align: left;">
+    <thead style="background-color: #0056b3; color: white;">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Department</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td style="padding: 8px;">{{ emp.id }}</td>
+        <td style="padding: 8px;">{{ emp.name }}</td>
+        <td style="padding: 8px;">{{ emp.role }}</td>
+        <td style="padding: 8px;">{{ emp.department }}</td>
+        <td style="padding: 8px;">{{ emp.salary | currency:'INR' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
