@@ -1,59 +1,82 @@
-# EmpMgtApp
+EMPLOYEE DBMS - Angular Project
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
+A modular Employee Management Dashboard built with Angular and TypeScript. This project focuses on the core fundamentals of Angular architecture, data modeling, and dynamic rendering.
 
-## Development server
+👥 Team Details
 
-To start a local development server, run:
+Yashwanth Reddy
 
-```bash
+Jins Thomas
+
+Anushka
+
+Nevita
+
+🎯 Project Scope (Task 1 & 2)
+
+This repository currently contains the implementation for the first two phases of the project:
+
+1. Setup and TypeScript Foundations (Task 1)
+
+Project Initialization: Created using Angular CLI with a module-based architecture.
+
+Data Modeling: Implementation of the Employee interface to define strict typing for:
+
+id
+
+name
+
+role
+
+department
+
+salary
+
+2. Angular Architecture and Component Design (Task 2)
+
+Modular Components: Created separate components for organized UI management:
+
+navbar: Handles the application header.
+
+employee-list: The core component for data display.
+
+Data Binding: Used TypeScript arrays to store employee records.
+
+Dynamic Rendering: Implemented the *ngFor structural directive to automatically generate table rows from the data model.
+
+🛠️ Technologies Used
+
+Framework: Angular
+
+Language: TypeScript
+
+Development Tools: Node.js, Angular CLI, Visual Studio Code
+
+💻 How to Run
+
+Clone the repository:
+
+git clone [https://github.com/YashwanthReddyPuli/employee-dashboard-angular.git](https://github.com/YashwanthReddyPuli/employee-dashboard-angular.git)
+
+
+Install dependencies:
+
+npm install
+
+
+Run the application:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+View the dashboard at http://localhost:4200/
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+📂 Project Structure
 
-```bash
-ng generate component component-name
-```
+src/app/employee.ts: The interface definition.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+src/app/employee-list/: Component logic and HTML for the table display.
 
-```bash
-ng generate --help
-```
+src/app/navbar/: Navigation component.
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Developed as part of the LNT Project Assignment - Batch 51
