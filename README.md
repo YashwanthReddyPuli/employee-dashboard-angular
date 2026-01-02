@@ -6,7 +6,7 @@ A modular Employee Management Dashboard built with Angular and TypeScript. This 
 
 PULI BALAJI YASHWANTH REDDY 
 
-Jins Thomas
+JINS THOMAS
 
 ANUSHKA PRAVAKAR 
 
