@@ -12,6 +12,6 @@ export class EmployeeList {
     { id: 1, name: 'Karthik', role: 'Project Lead', department: 'IT', salary: 95000 },
     { id: 2, name: 'jins', role: 'Trainee', department: 'Construction', salary: 40000 },
     { id: 3, name: 'Ravi', role: 'Manager', department: 'HR', salary: 80000 },
-    { id: 4, name: 'Gagan', role: 'Senior Developer', department: 'IT', salary: 105000 }
+    { id: 4, name: 'Gagan', role: 'Senior Developer', department: 'IT', salary: 105000 }  
   ];
 }
