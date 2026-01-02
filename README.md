@@ -4,13 +4,13 @@ A modular Employee Management Dashboard built with Angular and TypeScript. This 
 
 👥 Team Details
 
-Yashwanth Reddy
+PULI BALAJI YASHWANTH REDDY 
 
 Jins Thomas
 
-Anushka
+ANUSHKA PRAVAKAR 
 
-Nevita
+NEVITA SHARON Y 
 
 🎯 Project Scope (Task 1 & 2)
 
