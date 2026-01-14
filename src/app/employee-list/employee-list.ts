@@ -17,9 +17,8 @@ export class EmployeeList {
     { id: 6, name: 'Karthik', role: 'Intern', department: 'Marketing', salary: 30000 },
     { id: 7, name: 'Allah', role: 'Designer', department: 'UI/UX', salary:  0 },
     { id: 8, name: 'Yesuuuuu', role: 'Erripuku', department: 'Gorrelu', salary: 0.5 },
-    { id: 9, name: 'Bobby', role: 'Manager', department: 'Marketing', salary: 70000 },
-    { id: 10, name: 'Munda', role: 'Software Engineer', department: 'IT', salary: 60000 }
-
+    { id: 9, name: 'Munda', role: 'Software Engineer', department: 'IT', salary: 60000 },
+    { id: 10, name: 'Shibuq', role: 'Manager', department: 'Marketing', salary: 70000 }
   
   ];
 }
