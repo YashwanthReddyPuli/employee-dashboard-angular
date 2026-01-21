@@ -15,10 +15,10 @@ export class EmployeeList {
     { id: 4, name: 'Gagan', role: 'Senior Developer', department: 'IT', salary: 105000 },
     { id: 5, name: 'Raghavendra Bhanu Teja', role: 'Developer', department: 'IT', salary: 75000 },
     { id: 6, name: 'Karthik', role: 'Intern', department: 'Marketing', salary: 30000 },
-    { id: 7, name: 'Allah', role: 'Designer', department: 'UI/UX', salary:  0 },
-    { id: 8, name: 'Yesuuuuu', role: 'Erripuku', department: 'Gorrelu', salary: 0.5 },
-    { id: 9, name: 'Munda', role: 'Software Engineer', department: 'IT', salary: 60000 },
-    { id: 10, name: 'Shibuq', role: 'Manager', department: 'Marketing', salary: 70000 }
+    { id: 7, name: 'Aman', role: 'Designer', department: 'UI/UX', salary:  70000 },
+    { id: 8, name: 'Yeswi', role: 'Electrical Engineer', department: 'Electrical', salary: 50000 },
+    { id: 9, name: 'Munal', role: 'Software Engineer', department: 'IT', salary: 60000 },
+    { id: 10, name: 'Shibu', role: 'Manager', department: 'Marketing', salary: 70000 }
   
   ];
 }
