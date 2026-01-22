@@ -1,21 +1,108 @@
-<h2>Employee Management Dashboard</h2>
-<table border="1" style="width:100%; border-collapse: collapse;">
-  <thead style="background-color: #0056b3; color: white;">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Role</th>
-      <th>Department</th>
-      <th>Salary</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let emp of employees">
-      <td>{{ emp.id }}</td>
-      <td>{{ emp.name }}</td>
-      <td>{{ emp.role }}</td>
-      <td>{{ emp.department }}</td>
-      <td>{{ emp.salary | currency:'INR' }}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="currentView === 'home'" class="fade-in">
+  <div class="summary-dashboard">
+    <div class="stat-box blue-border">
+      <span class="stat-label">Total Staff</span>
+      <span class="stat-value">{{ employees.length }}</span>
+    </div>
+    <div class="stat-box green-border">
+      <span class="stat-label">Monthly Payroll Total</span>
+      <span class="stat-value">{{ getTotalPayroll() | currency:'INR':'symbol':'1.0-0' }}</span>
+    </div>
+  </div>
+
+  <h3 class="view-subtitle">Active Personnel List</h3>
+  <table class="simple-view-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Position</th>
+        <th>Department</th>
+        <th>Salary</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{ emp.id }}</td>
+        <td><strong>{{ emp.name }}</strong></td>
+        <td>{{ emp.role }}</td>
+        <td><span class="dept-badge">{{ emp.department }}</span></td>
+        <td>{{ emp.salary | currency:'INR':'symbol':'1.0-0' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="currentView === 'database'" class="fade-in">
+  <div class="db-controls">
+    <input type="text" [(ngModel)]="searchText" (input)="filterEmployees()" placeholder="Search Name...">
+
+    <div class="control-group">
+      <label>Sort By:</label>
+      <select (change)="applySort($any($event.target).value)">
+        <option value="">Select Criteria</option>
+        <option value="name">Name (A-Z)</option>
+        <option value="salary">Salary (Low to High)</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label>Filter Dept:</label>
+      <select (change)="applyFilter('department', $any($event.target).value)">
+        <option value="">All Departments</option>
+        <option value="IT">IT</option>
+        <option value="HR">HR</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Construction">Construction</option>
+        <option value="UI/UX">UI/UX</option>
+        <option value="Electrical">Electrical</option>
+      </select>
+    </div>
+
+    <button class="btn-reset" (click)="resetTable()">Reset</button>
+    <button class="btn-primary" (click)="openAddForm()">+ Add Employee</button>
+  </div>
+
+  <table class="managed-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Dept</th>
+        <th>Salary</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of filteredEmployees">
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.role }}</td>
+        <td>{{ emp.department }}</td>
+        <td>{{ emp.salary | currency:'INR':'symbol':'1.0-0' }}</td>
+        <td>
+          <button class="action-link edit" (click)="editEmployee(emp)">Edit</button>
+          <button class="action-link delete" (click)="deleteEmployee(emp.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal-backdrop" *ngIf="showForm">
+  <div class="modal-card">
+    <h3>{{ editMode ? 'Modify Record' : 'Create New Record' }}</h3>
+    <div class="form-grid">
+      <input [(ngModel)]="currentEmployee.name" placeholder="Full Name">
+      <input [(ngModel)]="currentEmployee.role" placeholder="Role/Position">
+      <input [(ngModel)]="currentEmployee.department" placeholder="Department">
+      
+      <input type="text" inputmode="numeric" [(ngModel)]="currentEmployee.salary" placeholder="Salary Amount">
+    </div>
+    <div class="modal-footer">
+      <button (click)="showForm = false" class="btn-cancel">Discard</button>
+      <button (click)="saveEmployee()" class="btn-save">Save Changes</button>
+    </div>
+  </div>
+</div>

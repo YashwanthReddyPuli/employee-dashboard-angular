@@ -1,25 +1,23 @@
-import { NgModule, provideBrowserGlobalErrorListeners } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
-import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { EmployeeList } from './employee-list/employee-list';
-import { EmployeeDetail } from './employee-detail/employee-detail';
-import { Navbar } from './navbar/navbar';
+// Update this line to match the class name NavbarComponent
+import { NavbarComponent } from './navbar/navbar'; 
 
 @NgModule({
   declarations: [
     App,
     EmployeeList,
-    EmployeeDetail,
-    Navbar
+    NavbarComponent // Use the correct name here as well
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [
-    provideBrowserGlobalErrorListeners()
+    FormsModule,
+    CommonModule
   ],
   bootstrap: [App]
 })

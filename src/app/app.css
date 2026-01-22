@@ -1,0 +1,59 @@
+/* Color Palette */
+:root {
+  --primary: #1e293b;
+  --accent: #3b82f6;
+  --bg: #f8fafc;
+  --text: #334155;
+}
+
+/* Navbar UI */
+.navbar {
+  background: var(--primary);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 5%;
+  align-items: center;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.nav-brand { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.5px; }
+
+.nav-links button {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links button.active { color: white; border-bottom: 2px solid var(--accent); }
+
+/* Table and Cards */
+.main-container { padding: 2rem 5%; background: var(--bg); min-height: 100vh; }
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.modern-table {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 1.5rem;
+}
+
+.modern-table th { background: #f1f5f9; padding: 1rem; text-align: left; cursor: pointer; color: #475569; }
+
+.modern-table td { padding: 1rem; border-bottom: 1px solid #e2e8f0; }
+
+.btn-primary { background: var(--accent); color: white; border: none; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; }

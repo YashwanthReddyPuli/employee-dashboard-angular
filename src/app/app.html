@@ -1,1 +1,5 @@
-<app-employee-list></app-employee-list>
+<app-navbar (viewChange)="currentView = $event"></app-navbar>
+
+<div class="main-container">
+  <app-employee-list [currentView]="currentView"></app-employee-list>
+</div>
