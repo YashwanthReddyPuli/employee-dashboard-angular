@@ -69,13 +69,14 @@ ng serve
 
 ## 📂 Project Structure
 
-src/app/  
-├── navbar/             # Top-aligned navigation component  
-├── employee-list/      # Stats, filtering, sorting, and CRUD  
-├── employee.ts         # Core TypeScript interface  
-├── app.component.ts    # Root application logic  
-└── app.module.ts       # Module definitions  
-
+```plaintext
+src/app/
+├── navbar/                 # Top-aligned navigation component
+├── employee-list/          # Stats, filtering, sorting, and CRUD
+├── employee.ts             # Core TypeScript interface
+├── app.component.ts        # Root application logic
+└── app.module.ts           # Module definitions
+```
 ## 🚀 Quick Start
 
 1. Ensure you have **Node.js** (v14+) and **Angular CLI** installed  
