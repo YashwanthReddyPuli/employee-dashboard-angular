@@ -1,82 +1,78 @@
-EMPLOYEE DBMS - Angular Project
+# 👥 Employee DBMS - Angular Dashboard
 
-A modular Employee Management Dashboard built with Angular and TypeScript. This project focuses on the core fundamentals of Angular architecture, data modeling, and dynamic rendering.
+A professional, modular **Employee Management Dashboard** built with **Angular** and **TypeScript**. This project demonstrates advanced Angular architecture, dynamic data manipulation, and responsive UI design tailored for enterprise resource planning.
 
-👥 Team Details
+## 👨‍💻 Team Details
 
-PULI BALAJI YASHWANTH REDDY 
+Meet the developers behind this project:
 
-JINS THOMAS
+- **PULI BALAJI YASHWANTH REDDY**
+- **JINS THOMAS**
+- **ANUSHKA PRAVAKAR**
+- **NEVITA SHARON Y**
 
-ANUSHKA PRAVAKAR 
+## 🎯 Project Scope & Features
 
-NEVITA SHARON Y 
+### 1. TypeScript Foundations & Data Modeling
+- **Strict Typing**: Full implementation of a robust `Employee` interface
+- **Data Fields**: Comprehensive tracking including ID, Name, Role, Department, and Salary
 
-🎯 Project Scope (Task 1 & 2)
+### 2. Angular Architecture
+- **Module-Based Design**: Organized via `AppModule` with clean component declarations
+- **Component Communication**: Implementation of `@Input()` and `@Output()` decorators for data flow
 
-This repository currently contains the implementation for the first two phases of the project:
+### 3. Advanced Dashboard Features
+- **Operational Overview**: Real-time metrics like Total Headcount and Total Monthly Payroll
+- **Dynamic Data Controls**:
+  - **Sorting**: Logic to sort records by Name or Salary
+  - **Filtering**: Isolate departments via dropdown menus
+- **Full CRUD Operations**:
+  ➕ **Create**: Add new records with form validation  
+  📖 **Read**: Real-time data visualization  
+  ✏️ **Update**: Editing existing employee details  
+  🗑️ **Delete**: Removing records from the database
+- **Data Precision**: Salary inputs restricted to manual numeric entry
 
-1. Setup and TypeScript Foundations (Task 1)
+## 🛠️ Technologies Used
 
-Project Initialization: Created using Angular CLI with a module-based architecture.
+| Category     | Technology          |
+|--------------|---------------------|
+| **Framework** | Angular            |
+| **Language**  | TypeScript         |
+| **Styling**   | Modern CSS3        |
+| **Environment** | Node.js, Angular CLI |
+| **Editor**    | Visual Studio Code |
 
-Data Modeling: Implementation of the Employee interface to define strict typing for:
+## 💻 Installation & Setup
 
-id
+Follow these steps to get the project running locally:
 
-name
+```bash
+# Clone the repository
+git clone https://github.com/YashwanthReddyPuli/employee-dashboard-angular.git
 
-role
+# Navigate to the project directory
+cd employee-dashboard-angular
 
-department
-
-salary
-
-2. Angular Architecture and Component Design (Task 2)
-
-Modular Components: Created separate components for organized UI management:
-
-navbar: Handles the application header.
-
-employee-list: The core component for data display.
-
-Data Binding: Used TypeScript arrays to store employee records.
-
-Dynamic Rendering: Implemented the *ngFor structural directive to automatically generate table rows from the data model.
-
-🛠️ Technologies Used
-
-Framework: Angular
-
-Language: TypeScript
-
-Development Tools: Node.js, Angular CLI, Visual Studio Code
-
-💻 How to Run
-
-Clone the repository:
-
-git clone [https://github.com/YashwanthReddyPuli/employee-dashboard-angular.git](https://github.com/YashwanthReddyPuli/employee-dashboard-angular.git)
-
-
-Install dependencies:
-
+# Install dependencies
 npm install
 
-
-Run the application:
-
+# Run the application
 ng serve
 
-
-View the dashboard at http://localhost:4200/
-
+View the dashboard: Open http://localhost:4200 in your browser.
 📂 Project Structure
 
-src/app/employee.ts: The interface definition.
+src/app/
+├── navbar/             # Top-aligned navigation component
+├── employee-list/      # Stats, filtering, sorting, and CRUD
+├── employee.ts                 # Core TypeScript interface
+├── app.component.ts         # Root application logic
+└── app.module.ts                 # Module definitions
+🚀 Quick Start
 
-src/app/employee-list/: Component logic and HTML for the table display.
+    Ensure you have Node.js (v14+) and Angular CLI installed
 
-src/app/navbar/: Navigation component.
+    Clone and install as shown above
 
-Developed as part of the LNT Project Assignment - Batch 51
+    Access the dashboard at http://localhost:4200
