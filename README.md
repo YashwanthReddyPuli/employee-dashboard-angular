@@ -1,4 +1,4 @@
-# 👥 Employee DBMS - Angular Dashboard
+># 👥 Employee DBMS - Angular Dashboard
 
 A professional, modular **Employee Management Dashboard** built with **Angular** and **TypeScript**. This project demonstrates advanced Angular architecture, dynamic data manipulation, and responsive UI design tailored for enterprise resource planning.
 
@@ -43,36 +43,41 @@ Meet the developers behind this project:
 | **Environment** | Node.js, Angular CLI |
 | **Editor**    | Visual Studio Code |
 
-## 💻 Installation & Setup
+💻 Installation & Setup
 
-Follow these steps to get the project running locally:
+1. Clone the repository
 
-```bash
-# Clone the repository
+```
 git clone https://github.com/YashwanthReddyPuli/employee-dashboard-angular.git
+```
+2. Navigate to the project directory
 
-# Navigate to the project directory
+```
 cd employee-dashboard-angular
+```
+3. Install dependencies
 
-# Install dependencies
+```
 npm install
+```
+4. Run the application
 
-# Run the application
+```
 ng serve
+```
+**View the dashboard**: Open [http://localhost:4200](http://localhost:4200) in your browser.
 
-View the dashboard: Open http://localhost:4200 in your browser.
-📂 Project Structure
+## 📂 Project Structure
 
-src/app/
-├── navbar/             # Top-aligned navigation component
-├── employee-list/      # Stats, filtering, sorting, and CRUD
-├── employee.ts                 # Core TypeScript interface
-├── app.component.ts         # Root application logic
-└── app.module.ts                 # Module definitions
-🚀 Quick Start
+src/app/  
+├── navbar/             # Top-aligned navigation component  
+├── employee-list/      # Stats, filtering, sorting, and CRUD  
+├── employee.ts         # Core TypeScript interface  
+├── app.component.ts    # Root application logic  
+└── app.module.ts       # Module definitions  
 
-    Ensure you have Node.js (v14+) and Angular CLI installed
+## 🚀 Quick Start
 
-    Clone and install as shown above
-
-    Access the dashboard at http://localhost:4200
+1. Ensure you have **Node.js** (v14+) and **Angular CLI** installed  
+2. Clone and install as shown above  
+3. Access the dashboard at `http://localhost:4200`
