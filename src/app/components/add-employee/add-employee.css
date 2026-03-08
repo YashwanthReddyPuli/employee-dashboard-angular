@@ -1,0 +1,146 @@
+.form-wrapper {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 100px);
+}
+
+.premium-form-card {
+  max-width: 800px;
+  width: 100%;
+  padding: 48px !important;
+  border-radius: 20px !important;
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-subtle) !important;
+  box-shadow: var(--shadow-lg) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle glow effect behind the form */
+.premium-form-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.05), transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.form-header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 40px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 24px;
+}
+
+.form-header h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.form-header p {
+  color: var(--text-muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+.modern-grid-form {
+  position: relative;
+  z-index: 1;
+}
+
+.form-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.form-row mat-form-field {
+  flex: 1;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.btn-submit {
+  padding: 0 32px !important;
+  height: 48px;
+  font-size: 16px !important;
+}
+
+.btn-cancel {
+  padding: 0 24px !important;
+  height: 48px;
+  font-size: 16px !important;
+}
+
+/* Icon colors */
+.mat-mdc-form-field-icon-prefix mat-icon {
+  color: var(--text-muted);
+  margin-right: 8px;
+}
+
+/* Premium Compensation Field Styles */
+.compensation-section {
+  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+}
+
+.section-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.premium-salary-field .mat-mdc-text-field-wrapper {
+  background-color: var(--bg-dark) !important;
+}
+
+.premium-salary-field .salary-input {
+  font-family: 'Inter', monospace;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent-primary) !important;
+}
+
+.currency-prefix {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.currency-suffix {
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--text-disabled);
+  margin-left: 4px;
+}

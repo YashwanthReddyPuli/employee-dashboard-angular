@@ -6,6 +6,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  currentView: string = 'home';
-}
+export class App { } // No variables needed here anymore [cite: 738-739]

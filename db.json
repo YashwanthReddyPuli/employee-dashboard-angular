@@ -1,0 +1,45 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Karthik",
+      "email": "karthik@isekai.com",
+      "role": "Project Lead",
+      "department": "IT",
+      "salary": 100000
+    },
+    {
+      "id": "3",
+      "name": "Ravi",
+      "email": "ravi@isekai.com",
+      "role": "Manager",
+      "department": "HR",
+      "salary": 80000
+    },
+    {
+      "id": "4",
+      "name": "Gagan",
+      "email": "gagan@isekai.com",
+      "role": "Senior Developer",
+      "department": "IT",
+      "salary": 105000
+    },
+    {
+      "id": "5",
+      "name": "Raghavendra Bhanu Teja",
+      "email": "teja@isekai.com",
+      "role": "Developer",
+      "department": "IT",
+      "salary": 75000
+    },
+    {
+      "id": "6",
+      "name": "Yashwanth Reddy",
+      "email": "yash@isekai.com",
+      "role": "Senior Developer",
+      "department": "IT",
+      "salary": 200000
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

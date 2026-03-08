@@ -1,0 +1,36 @@
+<div class="dashboard-wrapper">
+  <div class="welcome-banner">
+    <h1>Operational Summary</h1>
+    <p>Real-time analytics for the Employee Management System.</p>
+  </div>
+
+  <div class="stats-grid">
+    <mat-card class="stat-card total-staff">
+      <mat-card-content>
+        <div class="stat-icon"><mat-icon>groups</mat-icon></div>
+        <div class="stat-data">
+          <span class="stat-label">TOTAL STAFF</span>
+          <span class="stat-value">{{totalEmployees}}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="stat-card payroll">
+      <mat-card-content>
+        <div class="stat-icon"><mat-icon>payments</mat-icon></div>
+        <div class="stat-data">
+          <span class="stat-label">MONTHLY PAYROLL</span>
+          <span class="stat-value">₹{{totalPayroll | number}}</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="quick-actions">
+    <h3>Quick Actions</h3>
+    <div class="button-row">
+      <button mat-stroked-button color="primary" routerLink="/database">View Directory</button>
+      <button mat-flat-button color="primary" routerLink="/add-employee">+ Register New Staff</button>
+    </div>
+  </div>
+</div>

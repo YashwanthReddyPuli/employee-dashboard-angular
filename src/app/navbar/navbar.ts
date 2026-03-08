@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,11 +6,4 @@ import { Component, Output, EventEmitter } from '@angular/core';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
 })
-// This must be NavbarComponent to match the AppModule above
-export class NavbarComponent {
-  @Output() viewChange = new EventEmitter<string>();
-
-  onNavClick(view: string) {
-    this.viewChange.emit(view);
-  }
-}
+export class NavbarComponent {}

@@ -1,108 +1,129 @@
-<div *ngIf="currentView === 'home'" class="fade-in">
-  <div class="summary-dashboard">
-    <div class="stat-box blue-border">
-      <span class="stat-label">Total Staff</span>
-      <span class="stat-value">{{ employees.length }}</span>
+<div class="directory-container animate-fade-in">
+  <div class="table-header">
+    <div class="header-titles">
+      <h2>Workforce Directory</h2>
+      <p class="subtitle">Manage, search, and view your entire organization.</p>
     </div>
-    <div class="stat-box green-border">
-      <span class="stat-label">Monthly Payroll Total</span>
-      <span class="stat-value">{{ getTotalPayroll() | currency:'INR':'symbol':'1.0-0' }}</span>
-    </div>
-  </div>
-
-  <h3 class="view-subtitle">Active Personnel List</h3>
-  <table class="simple-view-table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Full Name</th>
-        <th>Position</th>
-        <th>Department</th>
-        <th>Salary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let emp of employees">
-        <td>{{ emp.id }}</td>
-        <td><strong>{{ emp.name }}</strong></td>
-        <td>{{ emp.role }}</td>
-        <td><span class="dept-badge">{{ emp.department }}</span></td>
-        <td>{{ emp.salary | currency:'INR':'symbol':'1.0-0' }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div *ngIf="currentView === 'database'" class="fade-in">
-  <div class="db-controls">
-    <input type="text" [(ngModel)]="searchText" (input)="filterEmployees()" placeholder="Search Name...">
-
-    <div class="control-group">
-      <label>Sort By:</label>
-      <select (change)="applySort($any($event.target).value)">
-        <option value="">Select Criteria</option>
-        <option value="name">Name (A-Z)</option>
-        <option value="salary">Salary (Low to High)</option>
-      </select>
-    </div>
-
-    <div class="control-group">
-      <label>Filter Dept:</label>
-      <select (change)="applyFilter('department', $any($event.target).value)">
-        <option value="">All Departments</option>
-        <option value="IT">IT</option>
-        <option value="HR">HR</option>
-        <option value="Marketing">Marketing</option>
-        <option value="Construction">Construction</option>
-        <option value="UI/UX">UI/UX</option>
-        <option value="Electrical">Electrical</option>
-      </select>
-    </div>
-
-    <button class="btn-reset" (click)="resetTable()">Reset</button>
-    <button class="btn-primary" (click)="openAddForm()">+ Add Employee</button>
-  </div>
-
-  <table class="managed-table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Role</th>
-        <th>Dept</th>
-        <th>Salary</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let emp of filteredEmployees">
-        <td>{{ emp.id }}</td>
-        <td>{{ emp.name }}</td>
-        <td>{{ emp.role }}</td>
-        <td>{{ emp.department }}</td>
-        <td>{{ emp.salary | currency:'INR':'symbol':'1.0-0' }}</td>
-        <td>
-          <button class="action-link edit" (click)="editEmployee(emp)">Edit</button>
-          <button class="action-link delete" (click)="deleteEmployee(emp.id)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="modal-backdrop" *ngIf="showForm">
-  <div class="modal-card">
-    <h3>{{ editMode ? 'Modify Record' : 'Create New Record' }}</h3>
-    <div class="form-grid">
-      <input [(ngModel)]="currentEmployee.name" placeholder="Full Name">
-      <input [(ngModel)]="currentEmployee.role" placeholder="Role/Position">
-      <input [(ngModel)]="currentEmployee.department" placeholder="Department">
+    
+    <div class="filters-row">
+      <mat-form-field appearance="outline" class="search-field">
+        <input matInput [(ngModel)]="searchText" (input)="applyFilters()" placeholder="Search workforce...">
+        <mat-icon matSuffix class="search-icon">search</mat-icon>
+      </mat-form-field>
       
-      <input type="text" inputmode="numeric" [(ngModel)]="currentEmployee.salary" placeholder="Salary Amount">
-    </div>
-    <div class="modal-footer">
-      <button (click)="showForm = false" class="btn-cancel">Discard</button>
-      <button (click)="saveEmployee()" class="btn-save">Save Changes</button>
+      <mat-form-field appearance="outline" class="filter-field sort-dropdown">
+        <mat-label>Sort By</mat-label>
+        <mat-select [(ngModel)]="currentSort" (selectionChange)="handleSortChange()">
+          <mat-option value="name_asc">Name (A-Z)</mat-option>
+          <mat-option value="name_desc">Name (Z-A)</mat-option>
+          <mat-option value="salary_asc">Compensation (Low - High)</mat-option>
+          <mat-option value="salary_desc">Compensation (High - Low)</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="filter-field">
+        <mat-label>Department</mat-label>
+        <mat-select [(ngModel)]="selectedDepartment" (selectionChange)="applyFilters()">
+          <mat-option value="">All Departments</mat-option>
+          <mat-option value="IT">IT & Systems</mat-option>
+          <mat-option value="HR">Human Resources</mat-option>
+          <mat-option value="Marketing">Marketing</mat-option>
+          <mat-option value="Construction">Construction</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-stroked-button (click)="resetFilters()" class="reset-btn" style="height: 56px; line-height: 56px; border-color: var(--border-subtle); color: var(--text-muted); padding: 0 24px; font-weight: 500;">
+        <mat-icon style="margin-right: 8px;">refresh</mat-icon>
+        Reset Filters
+      </button>
     </div>
   </div>
+
+  <mat-card class="table-card">
+    <table mat-table [dataSource]="filteredEmployees">
+      
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let emp"> <span class="id-text">{{emp.id}}</span> </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Employee </th>
+        <td mat-cell *matCellDef="let emp">
+          <div class="user-profile-cell">
+            <div class="avatar-circle">{{emp.name.charAt(0)}}</div>
+            <div class="name-box">
+              <a [routerLink]="['/employee', emp.id]" class="primary-link">{{emp.name}}</a>
+              <span class="sub-text">{{emp.role}}</span>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Contact </th>
+        <td mat-cell *matCellDef="let emp"> {{emp.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef> Division </th>
+        <td mat-cell *matCellDef="let emp">
+          <ng-container *ngIf="editingId !== emp.id">
+            <span class="badge {{emp.department.toLowerCase()}}">{{emp.department}}</span>
+          </ng-container>
+          <ng-container *ngIf="editingId === emp.id">
+            <mat-form-field appearance="outline" class="edit-field">
+              <mat-select [(ngModel)]="editDepartment">
+                <mat-option value="IT">IT</mat-option>
+                <mat-option value="HR">HR</mat-option>
+                <mat-option value="Marketing">Marketing</mat-option>
+                <mat-option value="Construction">Construction</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </ng-container>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="salary">
+        <th mat-header-cell *matHeaderCellDef> Compensation </th>
+        <td mat-cell *matCellDef="let emp"> 
+          <ng-container *ngIf="editingId !== emp.id">
+            <span class="salary-bold">{{ emp.salary | currency:'INR':'symbol':'1.0-0' }}</span>
+          </ng-container>
+          <ng-container *ngIf="editingId === emp.id">
+            <mat-form-field appearance="outline" class="edit-field">
+              <input matInput type="number" [(ngModel)]="editSalary">
+            </mat-form-field>
+          </ng-container>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let emp">
+          <div class="action-buttons">
+            <ng-container *ngIf="editingId !== emp.id">
+              <button mat-icon-button (click)="startEdit(emp)" class="action-btn">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="deleteEmployee(emp.id)" class="delete-btn">
+                <mat-icon>delete_outline</mat-icon>
+              </button>
+            </ng-container>
+            <ng-container *ngIf="editingId === emp.id">
+              <button mat-icon-button color="primary" (click)="saveEdit(emp)" [disabled]="!editDepartment || !editSalary" class="save-btn">
+                <mat-icon>check</mat-icon>
+              </button>
+              <button mat-icon-button (click)="cancelEdit()" class="cancel-btn">
+                <mat-icon>close</mat-icon>
+              </button>
+            </ng-container>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['id', 'name', 'email', 'department', 'salary', 'actions']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'email', 'department', 'salary', 'actions'];" class="row-hover" [appHighSalary]="row.salary"></tr>
+    </table>
+  </mat-card>
 </div>

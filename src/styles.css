@@ -1,1 +1,257 @@
-/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/magenta-violet.css";
+
+/* --- PREMIUM DARK MODE DESIGN SYSTEM --- */
+:root {
+  /* Color Palette - Deep Dark SaaS Theme */
+  --bg-darker: #09090b; /* Zinc 950 - Main App Bg */
+  --bg-dark: #18181b; /* Zinc 900 - Sidebar/Navbar Bg */
+  --bg-card: #27272a; /* Zinc 800 - Card/Container Bg */
+  --bg-hover: #3f3f46; /* Zinc 700 - Hover States */
+  
+  --text-main: #f4f4f5; /* Zinc 50 - Primary Text */
+  --text-muted: #a1a1aa; /* Zinc 400 - Secondary/Label Text */
+  --text-disabled: #52525b; /* Zinc 600 - Disabled Text */
+  
+  --accent-primary: #8b5cf6; /* Violet 500 */
+  --accent-primary-hover: #7c3aed; /* Violet 600 */
+  --accent-glow: rgba(139, 92, 246, 0.4);
+  
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(139, 92, 246, 0.5);
+
+  --danger: #ef4444; /* Red 500 */
+  --danger-hover: #dc2626; /* Red 600 */
+  --danger-glow: rgba(239, 68, 68, 0.2);
+
+  --success: #10b981;
+  --warning: #f59e0b;
+
+  /* Shadows & Glassmorphism */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px var(--accent-glow);
+  
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Animation Timings */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-bouncy: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Base Resets */
+body {
+  background-color: var(--bg-darker) !important;
+  font-family: var(--font-body);
+  color: var(--text-main);
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  margin: 0;
+  color: var(--text-main);
+}
+
+/* Material Icons Override -> Make them look like Material Symbols */
+.mat-icon {
+  font-family: 'Material Symbols Rounded' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Angular Material Global Overrides for Dark SaaS Theme */
+
+/* Cards */
+.mat-mdc-card {
+  background: var(--bg-card) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow-md) !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--text-main) !important;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth) !important;
+}
+
+/* Form Fields */
+.mat-mdc-form-field {
+  width: 100%;
+}
+
+.mdc-text-field--outlined {
+  --mdc-outlined-text-field-container-color: var(--bg-dark);
+  --mdc-outlined-text-field-outline-color: var(--border-subtle);
+  --mdc-outlined-text-field-hover-outline-color: var(--text-muted);
+  --mdc-outlined-text-field-focus-outline-color: var(--accent-primary);
+  --mdc-outlined-text-field-caret-color: var(--accent-primary);
+  --mdc-outlined-text-field-input-text-color: var(--text-main);
+}
+
+/* Label Colors */
+.mdc-floating-label {
+  color: var(--text-muted) !important;
+  font-family: var(--font-body) !important;
+}
+.mdc-notched-outline__notch {
+  border-right: none; /* helps fix weird material cutout issues sometimes */
+}
+
+.mdc-floating-label--float-above {
+  color: var(--accent-primary) !important;
+  font-weight: 500;
+}
+
+.mat-mdc-input-element {
+  caret-color: var(--accent-primary) !important;
+}
+
+/* Inputs and Selects Text Color */
+.mat-mdc-select-value-text {
+  color: var(--text-main) !important;
+}
+
+.mat-mdc-input-element::placeholder {
+  color: var(--text-disabled) !important;
+}
+
+/* Hide Number Input Spinners */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.mat-mdc-select-arrow {
+  color: var(--text-muted) !important;
+}
+
+/* Buttons */
+.mat-mdc-flat-button.mat-primary {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary-hover)) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  font-family: var(--font-body) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px var(--accent-glow) !important;
+  transition: all var(--transition-bouncy) !important;
+}
+
+.mat-mdc-flat-button.mat-primary:hover:not([disabled]) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.6) !important;
+}
+
+.mat-mdc-flat-button[disabled] {
+  background: var(--bg-hover) !important;
+  color: var(--text-disabled) !important;
+  box-shadow: none !important;
+  opacity: 0.7;
+}
+
+.mat-mdc-stroked-button {
+  border-color: var(--border-subtle) !important;
+  color: var(--text-main) !important;
+  border-radius: 8px !important;
+  transition: all var(--transition-smooth) !important;
+}
+
+.mat-mdc-stroked-button:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--text-muted) !important;
+}
+
+/* Table */
+.mat-mdc-table {
+  background: transparent !important;
+  color: var(--text-main) !important;
+  font-family: var(--font-body) !important;
+}
+
+.mat-mdc-header-cell {
+  color: var(--text-muted) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-subtle) !important;
+  padding: 16px 24px !important;
+}
+
+.mat-mdc-cell {
+  color: var(--text-main) !important;
+  border-bottom: 1px solid var(--border-subtle) !important;
+  padding: 16px 24px !important;
+  font-size: 14px !important;
+  transition: background var(--transition-fast);
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  background-color: rgba(255,255,255, 0.02) !important;
+}
+
+/* Custom Scrollbar for Dark Theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-hover);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-disabled);
+}
+
+/* Utility Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in-up var(--transition-bouncy) forwards;
+}
+
+/* Premium gradient text utility */
+.gradient-text {
+  background: linear-gradient(to right, #c084fc, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

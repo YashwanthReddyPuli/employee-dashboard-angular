@@ -1,0 +1,67 @@
+<div class="form-wrapper animate-fade-in">
+  <mat-card class="premium-form-card">
+    <div class="form-header">
+      <h2>Register New Staff</h2>
+      <p>Fill in the professional details to onboard a new team member.</p>
+    </div>
+
+    <form [formGroup]="empForm" (ngSubmit)="saveRecord()" class="modern-grid-form">
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="name" placeholder="Ex. Yashwanth Reddy">
+          <mat-icon matPrefix>person</mat-icon>
+          <mat-error *ngIf="empForm.get('name')?.hasError('required')">Name is required.</mat-error>
+          <mat-error *ngIf="empForm.get('name')?.hasError('minlength')">Name must be at least 3 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Email Address</mat-label>
+          <input matInput formControlName="email" placeholder="yash@isekai.com">
+          <mat-icon matPrefix>mail</mat-icon>
+          <mat-error *ngIf="empForm.get('email')?.hasError('required')">Email is required.</mat-error>
+          <mat-error *ngIf="empForm.get('email')?.hasError('email') || empForm.get('email')?.hasError('pattern')">Please add valid mails only.</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Job Title / Role</mat-label>
+          <input matInput formControlName="role" placeholder="Senior Developer">
+          <mat-icon matPrefix>work</mat-icon>
+          <mat-error *ngIf="empForm.get('role')?.hasError('required')">Role is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Department</mat-label>
+          <mat-select formControlName="department">
+            <mat-option value="IT">IT & Systems</mat-option>
+            <mat-option value="HR">Human Resources</mat-option>
+            <mat-option value="Marketing">Marketing</mat-option>
+            <mat-option value="Construction">Construction</mat-option>
+          </mat-select>
+          <mat-error *ngIf="empForm.get('department')?.hasError('required')">Department is required.</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="compensation-section">
+        <label class="section-label">Compensation Package</label>
+        <mat-form-field appearance="outline" class="premium-salary-field full-width">
+          <mat-label>Monthly Base Pay (INR)</mat-label>
+          <input matInput type="number" formControlName="salary" placeholder="0.00" class="salary-input">
+          <span matPrefix class="currency-prefix">₹&nbsp;</span>
+          <span matSuffix class="currency-suffix">.00</span>
+          <mat-error *ngIf="empForm.get('salary')?.hasError('required')">Monthly compensation is required.</mat-error>
+          <mat-error *ngIf="empForm.get('salary')?.hasError('min')">Salary should be positive only (Minimum ₹1000).</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-footer">
+        <button mat-stroked-button type="button" routerLink="/database" class="btn-cancel">Cancel</button>
+        <button mat-flat-button color="primary" type="submit" [disabled]="empForm.invalid" class="btn-submit">
+          Confirm Registration
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

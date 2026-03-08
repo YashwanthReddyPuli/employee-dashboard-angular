@@ -1,7 +1,27 @@
-<nav class="navbar-container">
-  <div class="brand-name">Employee Management Dashboard</div>
-  <div class="nav-links">
-    <button (click)="onNavClick('home')">Home</button>
-    <button (click)="onNavClick('database')">Employee Database</button>
-  </div>
-</nav>
+<div class="nav-wrapper animate-fade-in">
+  <mat-toolbar class="glass-nav">
+    <div class="nav-container">
+      <div class="logo-area" routerLink="/home">
+        <div class="logo-icon">
+          <mat-icon>hub</mat-icon>
+        </div>
+        <span class="logo-text">ISEKAI<span class="dot">.</span></span>
+      </div>
+      
+      <div class="nav-links">
+        <a routerLink="/home" routerLinkActive="active-link" class="nav-item">
+          <mat-icon>dashboard</mat-icon> Dashboard
+        </a>
+        <a routerLink="/database" routerLinkActive="active-link" class="nav-item">
+          <mat-icon>group</mat-icon> Workforce
+        </a>
+      </div>
+
+      <span class="spacer"></span>
+
+      <button mat-flat-button color="primary" routerLink="/add-employee" class="cta-btn">
+        <mat-icon>add</mat-icon> Add Employee
+      </button>
+    </div>
+  </mat-toolbar>
+</div>

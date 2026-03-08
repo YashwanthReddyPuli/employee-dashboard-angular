@@ -1,1 +1,30 @@
-<p>employee-detail works!</p>
+<div class="detail-wrapper" *ngIf="employee">
+  <button class="btn-back" (click)="goBack()">← Back to Database</button>
+  
+  <div class="profile-card">
+    <div class="profile-header">
+      <div class="avatar">{{ employee.name.charAt(0) }}</div>
+      <h1>{{ employee.name }}</h1>
+      <p class="role-text">{{ employee.role }}</p>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-item">
+        <label>Employee ID</label>
+        <span>{{ employee.id }}</span>
+      </div>
+      <div class="info-item">
+        <label>Department</label>
+        <span class="dept-tag">{{ employee.department }}</span>
+      </div>
+      <div class="info-item">
+        <label>Email Address</label>
+        <span>{{ employee.email }}</span>
+      </div>
+      <div class="info-item">
+        <label>Monthly Salary</label>
+        <span>{{ employee.salary | currency:'INR':'symbol':'1.0-0' }}</span>
+      </div>
+    </div>
+  </div>
+</div>

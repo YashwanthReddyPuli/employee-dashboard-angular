@@ -1,0 +1,148 @@
+.dashboard-wrapper {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 24px;
+}
+
+.welcome-banner {
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.welcome-banner h1 {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+.welcome-banner p {
+  color: var(--text-muted);
+  font-size: 18px;
+  margin: 0;
+  max-width: 600px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-bottom: 56px;
+}
+
+.stat-card {
+  padding: 32px !important;
+  background: var(--bg-card) !important;
+  border-radius: 20px !important;
+  box-shadow: var(--shadow-md) !important;
+  border: 1px solid var(--border-subtle) !important;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth) !important;
+  overflow: hidden;
+  position: relative;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Accent Glows for cards */
+.total-staff::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.payroll::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mat-mdc-card-content {
+  display: flex !important;
+  align-items: center;
+  gap: 24px;
+}
+
+.stat-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.stat-icon mat-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+}
+
+.total-staff .stat-icon {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--accent-primary);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.payroll .stat-icon {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.stat-data {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-label {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.stat-value {
+  color: var(--text-main);
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Quick Actions Section */
+.quick-actions h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text-main);
+}
+
+.button-row {
+  display: flex;
+  gap: 16px;
+}
+
+.button-row button {
+  height: 48px;
+  padding: 0 28px !important;
+  font-size: 16px !important;
+}
